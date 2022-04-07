@@ -1,0 +1,73 @@
+Cabal-Version:      2.4
+Name:               el-gamal-onchain
+Version:            0.1.0.0
+Author:             Thomas Vellekoop
+Maintainer:         t.b.vellekoop@uu.nl
+Build-Type:         Simple
+Copyright:          © 2021 Thomas Vellekoop
+License:            Apache-2.0
+License-files:      LICENSE
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Onchain
+                     , Utils
+                     , Elgamal
+  build-depends:     aeson
+                     , base ^>=4.14.1.0
+                     , bytestring
+                     , cardano-api
+                     , cardano-crypto-class
+                     , cardano-ledger-core
+                     , cardano-ledger-shelley
+                     , cardano-wallet-core
+                     , containers
+                     , data-default
+                     , freer-extras
+                     , openapi3
+                     , playground-common
+                     , plutus-contract
+                     , plutus-ledger
+                     , plutus-ledger-api
+                     , plutus-ledger-constraints
+                     , plutus-pab
+                     , plutus-tx-plugin
+                     , plutus-tx
+                     , plutus-use-cases
+                     , prettyprinter
+                     , serialise
+                     , text
+  default-language:    Haskell2010
+  ghc-options:         -Wall -fobject-code -fno-ignore-interface-pragmas -fno-omit-interface-pragmas -fno-strictness -fno-spec-constr -fno-specialise
+
+executable main-exe
+    main-is:            Main.hs
+    hs-source-dirs:     app
+    build-depends:     aeson
+                     , base ^>=4.14.1.0
+                     , bytestring
+                     , cardano-api
+                     , cardano-crypto-class
+                     , cardano-ledger-core
+                     , cardano-ledger-shelley
+                     , cardano-wallet-core
+                     , containers
+                     , data-default
+                     , freer-extras
+                     , openapi3
+                     , playground-common
+                     , plutus-contract
+                     , plutus-ledger
+                     , plutus-ledger-api
+                     , plutus-ledger-constraints
+                     , plutus-pab
+                     , plutus-tx-plugin
+                     , plutus-tx
+                     , plutus-use-cases
+                     , prettyprinter
+                     , serialise
+                     , text
+                     , el-gamal-onchain
+    default-language:  Haskell2010
+    ghc-options:       -Wall -fobject-code -fno-ignore-interface-pragmas -fno-omit-interface-pragmas -fno-strictness -fno-spec-constr -fno-specialise
+
