@@ -69,7 +69,6 @@ tryReadAddress x = case deserialiseAddress AsAddressAny $ pack x of
 tryReadWalletId :: String -> Maybe WalletId
 tryReadWalletId = decode . encode
 
-
 unsafeReadWalletId :: String -> WalletId
 unsafeReadWalletId s = fromMaybe (error $ "can't parse " ++ s ++ " as a WalletId") $ tryReadWalletId s
 
@@ -129,7 +128,6 @@ writeMintingPolicy file = writeFileTextEnvelope @(PlutusScript PlutusScriptV1) f
 
 writeValidator :: FilePath -> Plutus.Validator -> IO (Either (FileError ()) ())
 writeValidator file = writeFileTextEnvelope @(PlutusScript PlutusScriptV1) file Nothing . PlutusScriptSerialised . SBS.toShort . LBS.toStrict . serialise . Plutus.unValidatorScript
-
 
 unsafeTokenNameToHex :: TokenName -> String
 unsafeTokenNameToHex = BS8.unpack . serialiseToRawBytesHex . fromJust . deserialiseFromRawBytes AsAssetName . getByteString . unTokenName

@@ -13,6 +13,8 @@ library
   exposed-modules:     Onchain
                      , Utils
                      , Elgamal
+                     , Offchain
+                     , Trace
   build-depends:     aeson
                      , base ^>=4.14.1.0
                      , bytestring

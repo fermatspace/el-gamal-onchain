@@ -37,21 +37,17 @@ import           PlutusTx              (Data (..))
 import qualified PlutusTx
 import qualified Ledger
 
-
 import Utils
 import Onchain
 import Elgamal
+import Trace
 
 --main :: IO (Either (FileError ()) ())
 --main = writeValidator "temp/script.plutus" $ validator
 
-priv :: Integer
-priv = 234324324234
-testDatum = MyDatum {pubKey = exponentiateMod (params_g unsafeParams) priv (params_p unsafeParams)}
-testRedeemer = MyRedeemer {privKey = priv}
-
 main :: IO ()
 main = do
-    print $ testDatum
-    writeJSON "temp/datum.json" testDatum
-    writeJSON "temp/redeemer.json" testRedeemer
+--    print $ testDatum
+--    writeJSON "temp/datum.json" testDatum
+--    writeJSON "temp/redeemer.json" testRedeemer
+    test

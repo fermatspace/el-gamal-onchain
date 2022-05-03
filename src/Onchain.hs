@@ -1,15 +1,15 @@
-{-# LANGUAGE DataKinds           #-}
-{-# LANGUAGE MultiParamTypeClasses      #-}
-{-# LANGUAGE DeriveAnyClass      #-}
-{-# LANGUAGE DeriveGeneric       #-}
-{-# LANGUAGE FlexibleContexts    #-}
-{-# LANGUAGE NoImplicitPrelude   #-}
-{-# LANGUAGE OverloadedStrings   #-}
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE TemplateHaskell     #-}
-{-# LANGUAGE TypeApplications    #-}
-{-# LANGUAGE TypeFamilies        #-}
-{-# LANGUAGE TypeOperators       #-}
+{-# LANGUAGE DataKinds              #-}
+{-# LANGUAGE MultiParamTypeClasses  #-}
+{-# LANGUAGE DeriveAnyClass         #-}
+{-# LANGUAGE DeriveGeneric          #-}
+{-# LANGUAGE FlexibleContexts       #-}
+{-# LANGUAGE NoImplicitPrelude      #-}
+{-# LANGUAGE OverloadedStrings      #-}
+{-# LANGUAGE ScopedTypeVariables    #-}
+{-# LANGUAGE TemplateHaskell        #-}
+{-# LANGUAGE TypeApplications       #-}
+{-# LANGUAGE TypeFamilies           #-}
+{-# LANGUAGE TypeOperators          #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -33,6 +33,7 @@ import           Playground.TH        (mkKnownCurrencies, mkSchemaDefinitions)
 import           Playground.Types     (KnownCurrency (..))
 import           Prelude              (IO, Semigroup (..), String, Show)
 import           Text.Printf          (printf)
+
 import           Elgamal
 
 data MyDatum = MyDatum
@@ -50,10 +51,10 @@ data Params = Params
     } deriving (Generic, FromJSON, ToJSON, ToSchema)
 
 unsafeParams :: Params
-unsafeParams = Params p g 64
+unsafeParams = Params p g 2048
         where
-                p = safePrime64
-                g = (safePrime64 - 1) `PlutusTx.Prelude.divide` 2
+                p = safePrime2048
+                g = (safePrime2048 - 1) `PlutusTx.Prelude.divide` 2
 
 PlutusTx.makeIsDataIndexed ''MyDatum [('MyDatum, 0)]
 PlutusTx.makeLift ''MyDatum
